@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: catalog-bootstrap
+spec:
+  targets:
+    - ./catalog/entities.yaml
+    - ./catalog/org.yaml
+    - ./templates/repo-template/template.yaml
+    - ./templates/csharp-repo-template/template.yaml
