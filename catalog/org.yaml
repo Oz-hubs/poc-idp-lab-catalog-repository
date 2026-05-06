@@ -1,17 +1,14 @@
 ---
-# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-user
-apiVersion: backstage.io/v1alpha1
-kind: User
-metadata:
-  name: guest
-spec:
-  memberOf: [guests]
----
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+# Root organization group for Oz-hubs.
+# The GitHub Org catalog provider will automatically create User and child Group
+# entities for every member and team in the Oz-hubs GitHub organization.
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: guests
+  name: oz-hubs
+  annotations:
+    github.com/team-slug: Oz-hubs
 spec:
-  type: team
+  type: organization
   children: []
