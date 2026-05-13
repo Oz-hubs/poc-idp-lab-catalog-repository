@@ -16,7 +16,7 @@ Backstage is configured to ingest this repo starting from:
 
 Backstage points to this URL:
 
-- `https://github.com/ozeta/poc-idp-lab-catalog-repository/blob/main/catalog/locations.yaml`
+- `https://github.com/Oz-hubs/poc-idp-lab-catalog-repository/blob/oz-hubs/catalog/locations.yaml`
 
 The bootstrap location then references all catalog data and templates in this repo.
 
@@ -76,8 +76,11 @@ If `User`, `Group`, or `Template` are not allowed, ingestion warnings will appea
 
 The catalog branch is selected in the Backstage location URL itself.
 
+The POC currently reads from the `oz-hubs` branch.
+
 Example:
 
+- oz-hubs branch: `.../blob/oz-hubs/catalog/locations.yaml`
 - Main branch: `.../blob/main/catalog/locations.yaml`
 - Feature branch: `.../blob/feature/my-branch/catalog/locations.yaml`
 
@@ -88,14 +91,14 @@ Example:
 ### 1) New Repository with README
 
 - Template file: `templates/repo-template/template.yaml`
-- Creates a GitHub repository
+- Creates a GitHub repository under the **Oz-hubs** organization
 - Adds `README.md`, `CODEOWNERS`, and `catalog-info.yaml`
 - Registers the new component in Backstage via `catalog:register`
 
 ### 2) New C# Repository Foundation
 
 - Template file: `templates/csharp-repo-template/template.yaml`
-- Creates a GitHub repository for C# projects
+- Creates a GitHub repository under the **Oz-hubs** organization for C# projects
 - Adds governance and starter files
 - Registers the new component in Backstage via `catalog:register`
 
