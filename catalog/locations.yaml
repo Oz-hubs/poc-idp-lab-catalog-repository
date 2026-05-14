@@ -8,3 +8,4 @@ spec:
     - ./org.yaml
     - ../templates/repo-template/template.yaml
     - ../templates/csharp-repo-template/template.yaml
+    - ../catalog-info.yaml
