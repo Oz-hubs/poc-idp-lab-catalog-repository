@@ -8,6 +8,7 @@
 - `./org.yaml`
 - `../templates/repo-template/template.yaml`
 - `../templates/csharp-repo-template/template.yaml`
+- `../templates/python-repo-template/template.yaml`
 - `../catalog-info.yaml` (this repository as a Component)
 
 Paths are relative to the `catalog/` directory.

@@ -13,3 +13,10 @@
 - Creates a GitHub repository for C# projects
 - Adds governance and starter files
 - Registers the new component in Backstage via `catalog:register`
+
+## 3) New Python Repository Foundation
+
+- File: `templates/python-repo-template/template.yaml`
+- Creates a GitHub repository for Python projects
+- Adds TechDocs, engineering governance, and repo standards files
+- Registers the new component in Backstage via `catalog:register`

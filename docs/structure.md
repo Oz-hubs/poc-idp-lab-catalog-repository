@@ -12,6 +12,9 @@ templates/
   csharp-repo-template/
     template.yaml
     content/
+  python-repo-template/
+    template.yaml
+    content/
 catalog-info.yaml     # This repository registered as a Component
 mkdocs.yml            # TechDocs configuration
 docs/                 # TechDocs sources
