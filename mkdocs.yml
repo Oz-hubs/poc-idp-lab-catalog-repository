@@ -1,0 +1,12 @@
+site_name: poc-idp-lab-catalog-repository
+site_description: Backstage catalog source of truth for the IDP lab.
+
+nav:
+  - Home: index.md
+  - Repository Structure: structure.md
+  - Catalog: catalog.md
+  - Templates: templates.md
+  - Troubleshooting: troubleshooting.md
+
+plugins:
+  - techdocs-core
