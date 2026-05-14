@@ -17,8 +17,9 @@ spec:
         name:
           title: Name
           type: string
-          description: Unique name of the component (used as the repo and catalog entry name)
+          description: Unique name of the component
           ui:autofocus: true
+          pattern: '^[a-z0-9-]+$'
         description:
           title: Description
           type: string
