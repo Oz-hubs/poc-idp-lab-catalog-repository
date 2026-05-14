@@ -1,9 +1,9 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: new-repo-with-readme
-  title: New Repository with README
-  description: Creates a new GitHub repository pre-populated with a README and a Backstage catalog descriptor.
+  name: new-python-repo-foundation
+  title: New Python Repository Foundation
+  description: Creates a new GitHub repository for Python projects with TechDocs, engineering governance, and repo standards files.
 spec:
   owner: user:guest
   type: service
@@ -34,7 +34,18 @@ spec:
         codeowners:
           title: Code Owners
           type: string
-          description: 'GitHub CODEOWNERS entry (e.g. @org/team-name or @username)'
+          description: "GitHub CODEOWNERS entry (e.g. @org/team-name or @username)"
+          default: "@org/team-name"
+        pythonVersion:
+          title: Python Version
+          type: string
+          description: Python version for the project
+          default: "3.12"
+          enum:
+            - "3.10"
+            - "3.11"
+            - "3.12"
+            - "3.13"
     - title: Choose a location
       required:
         - repoUrl
@@ -60,6 +71,7 @@ spec:
           description: ${{ parameters.description }}
           owner: ${{ parameters.owner }}
           codeowners: ${{ parameters.codeowners }}
+          pythonVersion: ${{ parameters.pythonVersion }}
 
     - id: publish
       name: Publish to GitHub
@@ -84,7 +96,7 @@ spec:
         entityRefs:
           - user:default/guest
         title: Repository created
-        info: '${{ parameters.name }} has been created and registered in the catalog.'
+        info: "${{ parameters.name }} has been created and registered in the catalog."
         severity: normal
 
   output:
