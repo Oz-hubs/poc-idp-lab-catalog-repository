@@ -20,3 +20,11 @@
 - Creates a GitHub repository for Python projects
 - Adds TechDocs, engineering governance, and repo standards files
 - Registers the new component in Backstage via `catalog:register`
+
+## 4) New Group Test Repository
+
+- File: `templates/group-test-template/template.yaml`
+- Creates a new GitHub repository for group testing, owned by the Oz-hubs organization
+- Default CODEOWNERS set to `@Oz-hubs`
+- Adds `README.md`, `CODEOWNERS`, and `catalog-info.yaml`
+- Registers the new component in Backstage via `catalog:register`

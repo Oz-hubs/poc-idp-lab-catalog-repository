@@ -15,6 +15,9 @@ templates/
   python-repo-template/
     template.yaml
     content/
+  group-test-template/
+    template.yaml
+    content/
 catalog-info.yaml     # This repository registered as a Component
 mkdocs.yml            # TechDocs configuration
 docs/                 # TechDocs sources
