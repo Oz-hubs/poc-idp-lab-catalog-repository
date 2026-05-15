@@ -28,6 +28,7 @@ spec:
           title: Owner
           type: string
           description: Owner of the component
+          default: group:default/oz-hubs
           ui:field: OwnerPicker
           ui:options:
             catalogFilter:
