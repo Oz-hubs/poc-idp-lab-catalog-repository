@@ -13,6 +13,7 @@ spec:
       required:
         - name
         - description
+        - team
       properties:
         name:
           title: Name
@@ -38,6 +39,20 @@ spec:
           type: string
           description: 'GitHub CODEOWNERS entry (e.g. @org/team-name or @username)'
           default: '@Oz-hubs'
+        team:
+          title: GitHub Team
+          type: string
+          description: 'Name of the GitHub team that will own this repository (e.g. my-team)'
+        teamAccess:
+          title: Team Access Level
+          type: string
+          description: Permission level for the team
+          default: maintain
+          enum:
+            - pull
+            - push
+            - maintain
+            - admin
     - title: Choose a location
       required:
         - repoUrl
@@ -71,6 +86,9 @@ spec:
         description: ${{ parameters.description }}
         repoUrl: ${{ parameters.repoUrl }}
         defaultBranch: main
+        collaborators:
+          - team: ${{ parameters.team }}
+            access: ${{ parameters.teamAccess }}
 
     - id: register
       name: Register in Catalog
