@@ -5,6 +5,7 @@ metadata:
 spec:
   targets:
     - ./entities.yaml
+    - ./shopping-platform.yaml
     - ./org.yaml
     - ../templates/repo-template/template.yaml
     - ../templates/csharp-repo-template/template.yaml

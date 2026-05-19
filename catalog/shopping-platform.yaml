@@ -1,0 +1,146 @@
+---
+# =============================================================================
+# Complete example: e-commerce platform "shopping-platform"
+# Shows the relationships between System, Component, API and Resource
+# =============================================================================
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: shopping-platform
+  description: Example e-commerce platform composed of frontend, backend, database and external APIs.
+  tags:
+    - example
+    - ecommerce
+spec:
+  owner: oz-hubs
+---
+# Frontend ----------------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-web
+  description: Web frontend of the shopping platform (consumes the orders backend API).
+  tags:
+    - react
+    - frontend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-web
+spec:
+  type: website
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  consumesApis:
+    - shop-orders-rest-api
+---
+# Orders backend ----------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-orders-service
+  description: Backend service that handles orders, exposes a REST API and uses an external payment gateway.
+  tags:
+    - dotnet
+    - backend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-orders-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - shop-orders-rest-api
+  consumesApis:
+    - payment-gateway-api
+  dependsOn:
+    - resource:default/shop-orders-db
+---
+# REST API exposed by the backend -----------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: shop-orders-rest-api
+  description: REST API for order management (create, read, update status).
+  tags:
+    - rest
+    - openapi
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Shop Orders REST API
+      version: 1.0.0
+    paths:
+      /orders:
+        get:
+          summary: List orders
+          responses:
+            '200':
+              description: OK
+        post:
+          summary: Create a new order
+          responses:
+            '201':
+              description: Created
+      /orders/{id}:
+        get:
+          summary: Order detail
+          parameters:
+            - in: path
+              name: id
+              required: true
+              schema:
+                type: string
+          responses:
+            '200':
+              description: OK
+---
+# External API consumed (payment gateway) ---------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: payment-gateway-api
+  description: External payment gateway API (Stripe-like) used by the orders service.
+  tags:
+    - rest
+    - external
+spec:
+  type: openapi
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Payment Gateway API
+      version: 1.0.0
+    paths:
+      /charges:
+        post:
+          summary: Create a charge
+          responses:
+            '201':
+              description: Created
+---
+# Database ----------------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: shop-orders-db
+  description: PostgreSQL database that persists orders.
+  tags:
+    - postgres
+    - database
+spec:
+  type: database
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
