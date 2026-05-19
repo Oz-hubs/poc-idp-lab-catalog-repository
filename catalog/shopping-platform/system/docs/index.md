@@ -21,3 +21,7 @@ Example e-commerce platform used to demonstrate Backstage catalog relationships.
 1. The user browses `shop-web`.
 2. `shop-web` calls `shop-orders-rest-api` on `shop-orders-service`.
 3. `shop-orders-service` persists data in `shop-orders-db` and calls `payment-gateway-api` to charge the customer.
+
+## Metadata Reference
+
+For a comprehensive guide on all extractable metadata from this platform, see [metadata.md](../metadata.md).

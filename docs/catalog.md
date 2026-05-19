@@ -33,3 +33,9 @@ Backstage must allow these kinds for this location:
 2. Open a pull request.
 3. Merge to the branch used by Backstage.
 4. Backstage refreshes and ingests updated entities.
+
+## System Documentation
+
+Each system in the catalog has its own metadata guide and documentation:
+
+- [shopping-platform metadata](../catalog/shopping-platform/metadata.md) — Complete guide to all extractable metadata from the shopping-platform system, including entity inventory, relationships, technology stack, and analytics.

@@ -2,13 +2,18 @@
 
 ```text
 catalog/
-  locations.yaml      # Bootstrap Location entity
-  entities.yaml       # Systems, Components, APIs, Resources
-  org.yaml            # Users and Groups
+  locations.yaml         # Bootstrap Location entity
+  entities.yaml          # Systems, Components, APIs, Resources
+  org.yaml               # Users and Groups
+  shopping-platform/
+    metadata.md          # Shopping-platform metadata extraction guide
+    shopping-platform.yaml
+    system/
+      docs/
 templates/
   repo-template/
     template.yaml
-    content/          # Files scaffolded into new repos
+    content/             # Files scaffolded into new repos
   csharp-repo-template/
     template.yaml
     content/
@@ -18,9 +23,9 @@ templates/
   group-test-template/
     template.yaml
     content/
-catalog-info.yaml     # This repository registered as a Component
-mkdocs.yml            # TechDocs configuration
-docs/                 # TechDocs sources
+catalog-info.yaml        # This repository registered as a Component
+mkdocs.yml               # TechDocs configuration
+docs/                    # TechDocs sources
 ```
 
 ## Key Files
@@ -28,3 +33,4 @@ docs/                 # TechDocs sources
 - `catalog/locations.yaml` — entry point Backstage points at.
 - `catalog-info.yaml` — registers this repo itself as a Component with TechDocs.
 - `mkdocs.yml` — TechDocs site configuration.
+- `catalog/shopping-platform/metadata.md` — metadata extraction guide for shopping-platform system.
