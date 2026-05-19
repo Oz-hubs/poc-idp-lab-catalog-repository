@@ -2,6 +2,7 @@
 # =============================================================================
 # Complete example: e-commerce platform "shopping-platform"
 # Shows the relationships between System, Component, API and Resource
+# Each entity has a small TechDocs site under its own folder.
 # =============================================================================
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-system
 apiVersion: backstage.io/v1alpha1
@@ -12,6 +13,8 @@ metadata:
   tags:
     - example
     - ecommerce
+  annotations:
+    backstage.io/techdocs-ref: dir:./system
 spec:
   owner: oz-hubs
 ---
@@ -27,6 +30,7 @@ metadata:
     - example
   annotations:
     github.com/project-slug: Oz-hubs/shop-web
+    backstage.io/techdocs-ref: dir:./shop-web
 spec:
   type: website
   lifecycle: experimental
@@ -47,6 +51,7 @@ metadata:
     - example
   annotations:
     github.com/project-slug: Oz-hubs/shop-orders-service
+    backstage.io/techdocs-ref: dir:./shop-orders-service
 spec:
   type: service
   lifecycle: experimental
@@ -68,6 +73,8 @@ metadata:
   tags:
     - rest
     - openapi
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-orders-rest-api
 spec:
   type: openapi
   lifecycle: experimental
@@ -112,6 +119,8 @@ metadata:
   tags:
     - rest
     - external
+  annotations:
+    backstage.io/techdocs-ref: dir:./payment-gateway-api
 spec:
   type: openapi
   lifecycle: production
@@ -139,6 +148,8 @@ metadata:
   tags:
     - postgres
     - database
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-orders-db
 spec:
   type: database
   lifecycle: experimental
