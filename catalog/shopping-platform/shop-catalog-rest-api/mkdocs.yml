@@ -1,0 +1,5 @@
+site_name: shop-catalog-rest-api
+nav:
+  - Home: index.md
+plugins:
+  - techdocs-core

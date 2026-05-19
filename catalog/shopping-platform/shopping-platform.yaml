@@ -63,6 +63,8 @@ spec:
     - payment-gateway-api
   dependsOn:
     - resource:default/shop-orders-db
+    - resource:default/shop-events-bus
+    - component:default/shop-shared-lib
 ---
 # REST API exposed by the backend -----------------------------------------------
 apiVersion: backstage.io/v1alpha1
@@ -139,6 +141,31 @@ spec:
             '201':
               description: Created
 ---
+# External provider component for the payment gateway --------------------------
+# In Backstage the API "provider" relation is derived from a Component that
+# declares the API in `providesApis`. We model the third-party gateway as an
+# external Component so that the API has both a provider and a consumer.
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: payment-gateway
+  description: Third-party payment gateway provider (external, managed outside the org).
+  tags:
+    - external
+    - vendor
+  annotations:
+    backstage.io/techdocs-ref: dir:./payment-gateway
+  links:
+    - url: https://stripe.com
+      title: Vendor website
+spec:
+  type: service
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - payment-gateway-api
+---
 # Database ----------------------------------------------------------------------
 apiVersion: backstage.io/v1alpha1
 kind: Resource
@@ -152,6 +179,280 @@ metadata:
     backstage.io/techdocs-ref: dir:./shop-orders-db
 spec:
   type: database
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+---
+# =============================================================================
+# Additional components for shopping-platform
+# =============================================================================
+# Catalog (products) backend ----------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-catalog-service
+  description: Backend service that exposes the product catalog (products, categories, prices).
+  tags:
+    - dotnet
+    - backend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-catalog-service
+    backstage.io/techdocs-ref: dir:./shop-catalog-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - shop-catalog-rest-api
+  dependsOn:
+    - resource:default/shop-catalog-db
+    - component:default/shop-shared-lib
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: shop-catalog-rest-api
+  description: REST API for the product catalog (browse products and categories).
+  tags:
+    - rest
+    - openapi
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-catalog-rest-api
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Shop Catalog REST API
+      version: 1.0.0
+    paths:
+      /products:
+        get:
+          summary: List products
+          responses:
+            '200':
+              description: OK
+      /products/{id}:
+        get:
+          summary: Product detail
+          parameters:
+            - in: path
+              name: id
+              required: true
+              schema:
+                type: string
+          responses:
+            '200':
+              description: OK
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: shop-catalog-db
+  description: PostgreSQL database that stores products and categories.
+  tags:
+    - postgres
+    - database
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-catalog-db
+spec:
+  type: database
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+---
+# Inventory service -------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-inventory-service
+  description: Tracks stock levels; reacts to order events and exposes a read API.
+  tags:
+    - dotnet
+    - backend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-inventory-service
+    backstage.io/techdocs-ref: dir:./shop-inventory-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - shop-inventory-rest-api
+  consumesApis:
+    - shop-orders-rest-api
+  dependsOn:
+    - resource:default/shop-events-bus
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: shop-inventory-rest-api
+  description: REST API to query stock levels per product.
+  tags:
+    - rest
+    - openapi
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-inventory-rest-api
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Shop Inventory REST API
+      version: 1.0.0
+    paths:
+      /stock/{productId}:
+        get:
+          summary: Get stock level for a product
+          parameters:
+            - in: path
+              name: productId
+              required: true
+              schema:
+                type: string
+          responses:
+            '200':
+              description: OK
+---
+# Notification service ----------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-notification-service
+  description: Sends order confirmation and shipping emails via an external SMTP provider.
+  tags:
+    - python
+    - backend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-notification-service
+    backstage.io/techdocs-ref: dir:./shop-notification-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  consumesApis:
+    - shop-orders-rest-api
+    - smtp-api
+  dependsOn:
+    - resource:default/shop-events-bus
+---
+# External SMTP/email provider (vendor) -----------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: email-provider
+  description: Third-party email/SMTP provider (external SaaS, e.g. SendGrid).
+  tags:
+    - external
+    - vendor
+  annotations:
+    backstage.io/techdocs-ref: dir:./email-provider
+  links:
+    - url: https://sendgrid.com
+      title: Vendor website
+spec:
+  type: service
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - smtp-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: smtp-api
+  description: External SMTP/email-sending API used by the notification service.
+  tags:
+    - rest
+    - external
+  annotations:
+    backstage.io/techdocs-ref: dir:./smtp-api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: Email Provider API
+      version: 1.0.0
+    paths:
+      /mail/send:
+        post:
+          summary: Send an email
+          responses:
+            '202':
+              description: Accepted
+---
+# Shared library ----------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-shared-lib
+  description: Shared library with DTOs, validation and helpers reused across backend services.
+  tags:
+    - dotnet
+    - library
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-shared-lib
+    backstage.io/techdocs-ref: dir:./shop-shared-lib
+spec:
+  type: library
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+---
+# Admin frontend ----------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-admin-web
+  description: Internal admin web app to manage products and orders.
+  tags:
+    - react
+    - frontend
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-admin-web
+    backstage.io/techdocs-ref: dir:./shop-admin-web
+spec:
+  type: website
+  lifecycle: experimental
+  owner: oz-hubs
+  system: shopping-platform
+  consumesApis:
+    - shop-orders-rest-api
+    - shop-catalog-rest-api
+---
+# Event bus --------------------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: shop-events-bus
+  description: Message broker (Kafka-like) used to publish and consume domain events.
+  tags:
+    - kafka
+    - messaging
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-events-bus
+spec:
+  type: message-broker
   lifecycle: experimental
   owner: oz-hubs
   system: shopping-platform

@@ -1,0 +1,5 @@
+site_name: shop-shared-lib
+nav:
+  - Home: index.md
+plugins:
+  - techdocs-core

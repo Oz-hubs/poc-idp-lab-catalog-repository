@@ -1,0 +1,5 @@
+site_name: shop-inventory-rest-api
+nav:
+  - Home: index.md
+plugins:
+  - techdocs-core
