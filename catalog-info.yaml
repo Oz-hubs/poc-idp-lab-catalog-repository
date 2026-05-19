@@ -15,6 +15,8 @@ metadata:
     - url: https://github.com/ozeta/poc-idp-lab-catalog-repository
       title: GitHub Repository
       icon: github
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: documentation
   lifecycle: experimental

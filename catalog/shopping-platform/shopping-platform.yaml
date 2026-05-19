@@ -15,6 +15,9 @@ metadata:
     - ecommerce
   annotations:
     backstage.io/techdocs-ref: dir:./system
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   owner: oz-hubs
 ---
@@ -31,6 +34,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-web
     backstage.io/techdocs-ref: dir:./shop-web
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: website
   lifecycle: experimental
@@ -52,6 +58,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-orders-service
     backstage.io/techdocs-ref: dir:./shop-orders-service
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: experimental
@@ -77,6 +86,9 @@ metadata:
     - openapi
   annotations:
     backstage.io/techdocs-ref: dir:./shop-orders-rest-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: openapi
   lifecycle: experimental
@@ -123,6 +135,9 @@ metadata:
     - external
   annotations:
     backstage.io/techdocs-ref: dir:./payment-gateway-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: openapi
   lifecycle: production
@@ -158,6 +173,8 @@ metadata:
   links:
     - url: https://stripe.com
       title: Vendor website
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: production
@@ -177,6 +194,9 @@ metadata:
     - database
   annotations:
     backstage.io/techdocs-ref: dir:./shop-orders-db
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: database
   lifecycle: experimental
@@ -199,6 +219,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-catalog-service
     backstage.io/techdocs-ref: dir:./shop-catalog-service
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: experimental
@@ -220,6 +243,9 @@ metadata:
     - openapi
   annotations:
     backstage.io/techdocs-ref: dir:./shop-catalog-rest-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: openapi
   lifecycle: experimental
@@ -240,6 +266,9 @@ metadata:
     - database
   annotations:
     backstage.io/techdocs-ref: dir:./shop-catalog-db
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: database
   lifecycle: experimental
@@ -259,6 +288,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-inventory-service
     backstage.io/techdocs-ref: dir:./shop-inventory-service
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: experimental
@@ -281,6 +313,9 @@ metadata:
     - openapi
   annotations:
     backstage.io/techdocs-ref: dir:./shop-inventory-rest-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: openapi
   lifecycle: experimental
@@ -318,6 +353,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-notification-service
     backstage.io/techdocs-ref: dir:./shop-notification-service
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: experimental
@@ -343,6 +381,8 @@ metadata:
   links:
     - url: https://sendgrid.com
       title: Vendor website
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: service
   lifecycle: production
@@ -361,6 +401,9 @@ metadata:
     - external
   annotations:
     backstage.io/techdocs-ref: dir:./smtp-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: openapi
   lifecycle: production
@@ -392,6 +435,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-shared-lib
     backstage.io/techdocs-ref: dir:./shop-shared-lib
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: library
   lifecycle: experimental
@@ -411,6 +457,9 @@ metadata:
   annotations:
     github.com/project-slug: Oz-hubs/shop-admin-web
     backstage.io/techdocs-ref: dir:./shop-admin-web
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: website
   lifecycle: experimental
@@ -431,6 +480,9 @@ metadata:
     - messaging
   annotations:
     backstage.io/techdocs-ref: dir:./shop-events-bus
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: message-broker
   lifecycle: experimental

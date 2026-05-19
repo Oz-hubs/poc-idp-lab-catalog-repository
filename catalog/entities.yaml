@@ -4,6 +4,9 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: examples
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   owner: oz-hubs
 ---
@@ -12,6 +15,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: example-website
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: website
   lifecycle: experimental
@@ -24,6 +30,9 @@ apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: example-grpc-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: grpc
   lifecycle: experimental
@@ -45,6 +54,9 @@ apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: local-dev
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   owner: oz-hubs
 ---
@@ -54,6 +66,9 @@ kind: Resource
 metadata:
   name: local-postgres
   description: local env database
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: postgres
   lifecycle: experimental
@@ -69,6 +84,8 @@ metadata:
   links:
     - url: http://localhost:3000
       title: Local Backstage Instance
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
 spec:
   type: website
   lifecycle: experimental
