@@ -39,7 +39,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: website
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   consumesApis:
@@ -63,7 +63,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: service
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   providesApis:
@@ -89,9 +89,13 @@ metadata:
   links:
     - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
       title: Microsoft Teams Channel
+    - url: https://hyland.atlassian.net/wiki/spaces/HXP/pages/3105490991/Runbook+Launch+provisioning+E2E
+      title: Runbook
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
 spec:
   type: openapi
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   definition: |
@@ -138,6 +142,10 @@ metadata:
   links:
     - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
       title: Microsoft Teams Channel
+    - url: https://hyland.atlassian.net/wiki/spaces/HXP/pages/3105490991/Runbook+Launch+provisioning+E2E
+      title: Runbook
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
 spec:
   type: openapi
   lifecycle: production
@@ -199,7 +207,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: database
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
 ---
@@ -224,7 +232,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: service
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   providesApis:
@@ -246,9 +254,13 @@ metadata:
   links:
     - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
       title: Microsoft Teams Channel
+    - url: https://hyland.atlassian.net/wiki/spaces/HXP/pages/3105490991/Runbook+Launch+provisioning+E2E
+      title: Runbook
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
 spec:
   type: openapi
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   # The OpenAPI spec lives in a separate file; Backstage resolves the placeholder
@@ -271,7 +283,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: database
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
 ---
@@ -293,7 +305,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: service
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   providesApis:
@@ -316,9 +328,13 @@ metadata:
   links:
     - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
       title: Microsoft Teams Channel
+    - url: https://hyland.atlassian.net/wiki/spaces/HXP/pages/3105490991/Runbook+Launch+provisioning+E2E
+      title: Runbook
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
 spec:
   type: openapi
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   definition: |
@@ -358,7 +374,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: service
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   consumesApis:
@@ -404,6 +420,10 @@ metadata:
   links:
     - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
       title: Microsoft Teams Channel
+    - url: https://hyland.atlassian.net/wiki/spaces/HXP/pages/3105490991/Runbook+Launch+provisioning+E2E
+      title: Runbook
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
 spec:
   type: openapi
   lifecycle: production
@@ -440,7 +460,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: library
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
 ---
@@ -462,7 +482,7 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: website
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
   consumesApis:
@@ -485,6 +505,6 @@ metadata:
       title: Microsoft Teams Channel
 spec:
   type: message-broker
-  lifecycle: experimental
+  lifecycle: production
   owner: oz-hubs
   system: shopping-platform
