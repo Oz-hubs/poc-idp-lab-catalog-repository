@@ -44,6 +44,7 @@ spec:
   system: shopping-platform
   consumesApis:
     - shop-orders-rest-api
+    - shop-catalog-graphql-api
 ---
 # Orders backend ----------------------------------------------------------------
 apiVersion: backstage.io/v1alpha1
@@ -274,6 +275,63 @@ spec:
   definition:
     $text: ./shop-catalog-rest-api/openapi.yaml
 ---
+# Catalog GraphQL gateway ------------------------------------------------------
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: shop-catalog-graphql-service
+  description: GraphQL service that aggregates catalog data for web and admin experiences.
+  tags:
+    - dotnet
+    - backend
+    - graphql
+    - example
+  annotations:
+    github.com/project-slug: Oz-hubs/shop-catalog-graphql-service
+    backstage.io/techdocs-ref: dir:./shop-catalog-graphql-service
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
+spec:
+  type: service
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  providesApis:
+    - shop-catalog-graphql-api
+  consumesApis:
+    - shop-catalog-rest-api
+    - shop-inventory-rest-api
+  dependsOn:
+    - component:default/shop-catalog-service
+    - component:default/shop-inventory-service
+    - component:default/shop-shared-lib
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: shop-catalog-graphql-api
+  description: GraphQL API for querying product catalog and stock availability.
+  tags:
+    - graphql
+    - catalog
+  annotations:
+    backstage.io/techdocs-ref: dir:./shop-catalog-graphql-api
+    backstage.io/kubernetes-namespace: shopping-platform
+    backstage.io/kubernetes-id: shop-catalog-graphql-api
+  links:
+    - url: 'https://teams.microsoft.com/l/channel/19%3AwpFJUbTuaBuIhhecEj5mt5URreZw7EET_BG1Ro6pI181%40thread.tacv2/DevEx?groupId=5944ba60-15cf-4b5c-b359-a7819160e34a&tenantId=8ca5db88-a5ab-48f7-a5e0-4ce50935f807&ngc=true'
+      title: Microsoft Teams Channel
+    - url: mailto:mar.carrozzo@hyland.com
+      title: Team Email
+spec:
+  type: graphql
+  lifecycle: production
+  owner: oz-hubs
+  system: shopping-platform
+  definition:
+    $text: ./shop-catalog-graphql-api/schema.graphql
+---
 apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
@@ -498,6 +556,7 @@ spec:
   consumesApis:
     - shop-orders-rest-api
     - shop-catalog-rest-api
+    - shop-catalog-graphql-api
 ---
 # Event bus --------------------------------------------------------------------
 apiVersion: backstage.io/v1alpha1

@@ -1,0 +1,27 @@
+type Query {
+  product(id: ID!): Product
+  products(category: String, limit: Int = 20): [Product!]!
+  categories: [Category!]!
+  stock(productId: ID!): Stock!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  price: Float!
+  currency: String!
+  category: Category!
+  stock: Stock!
+}
+
+type Category {
+  id: ID!
+  name: String!
+}
+
+type Stock {
+  productId: ID!
+  available: Int!
+  status: String!
+}

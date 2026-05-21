@@ -13,10 +13,10 @@
 From [shopping-platform.yaml](catalog/shopping-platform/shopping-platform.yaml):
 
 - **1 System**: `shopping-platform`
-- **9 Components**:
-  - Internal: `shop-web`, `shop-admin-web`, `shop-orders-service`, `shop-catalog-service`, `shop-inventory-service`, `shop-notification-service`, `shop-shared-lib`
+- **10 Components**:
+  - Internal: `shop-web`, `shop-admin-web`, `shop-orders-service`, `shop-catalog-service`, `shop-catalog-graphql-service`, `shop-inventory-service`, `shop-notification-service`, `shop-shared-lib`
   - External: `payment-gateway`, `email-provider`
-- **5 APIs**: `shop-orders-rest-api`, `shop-catalog-rest-api`, `shop-inventory-rest-api`, `payment-gateway-api`, `smtp-api`
+- **6 APIs**: `shop-orders-rest-api`, `shop-catalog-rest-api`, `shop-catalog-graphql-api`, `shop-inventory-rest-api`, `payment-gateway-api`, `smtp-api`
 - **3 Resources**: `shop-orders-db`, `shop-catalog-db`, `shop-events-bus`
 
 ## 3. Per-Entity Metadata
@@ -46,7 +46,7 @@ For each entity, the following metadata is captured:
 - **Languages/Frameworks**: `dotnet`, `python`, `react`
 - **Component roles**: `frontend`, `backend`, `library`
 - **Infrastructure**: `postgres`, `kafka`, `messaging`, `database`
-- **API categories**: `rest`, `openapi`, `external`
+- **API categories**: `rest`, `openapi`, `graphql`, `external`
 
 ## 6. External Integrations
 
@@ -58,7 +58,7 @@ For each entity, the following metadata is captured:
 
 - `github.com/project-slug`: Repository reference for internal components
   - Format: `Oz-hubs/{repository-name}`
-  - 7 internal repositories tracked (all others are external or utilities)
+  - 8 internal repositories tracked (all others are external or utilities)
 
 ## 8. TechDocs Integration
 
@@ -68,8 +68,10 @@ For each entity, the following metadata is captured:
   - `docs/index.md`: Documentation entry point
 - **External Specs**:
   - OpenAPI spec file: [openapi.yaml](catalog/shopping-platform/shop-catalog-rest-api/openapi.yaml)
+  - GraphQL schema file: [schema.graphql](catalog/shopping-platform/shop-catalog-graphql-api/schema.graphql)
   - 4 APIs include inline OpenAPI definitions
   - 1 API references external OpenAPI spec via `$text:`
+  - 1 API references external GraphQL schema via `$text:`
 
 ## 9. Derived Metrics & Analytics
 
@@ -95,16 +97,20 @@ Metadata that can be aggregated:
 ## 11. Key Relationships Summary
 
 ### Data Flow
-```
+
+```text
 shop-web → shop-orders-rest-api → shop-orders-service
-shop-admin-web → shop-orders-rest-api, shop-catalog-rest-api
+shop-web → shop-catalog-graphql-api → shop-catalog-graphql-service
+shop-admin-web → shop-orders-rest-api, shop-catalog-rest-api, shop-catalog-graphql-api
+shop-catalog-graphql-service → shop-catalog-rest-api, shop-inventory-rest-api
 shop-orders-service → payment-gateway-api (external)
 shop-notification-service → smtp-api (external)
 shop-inventory-service → shop-orders-rest-api
 ```
 
 ### Resource Dependencies
-```
+
+```text
 shop-orders-service → shop-orders-db, shop-events-bus, shop-shared-lib
 shop-catalog-service → shop-catalog-db, shop-shared-lib
 shop-inventory-service → shop-events-bus
@@ -112,9 +118,11 @@ shop-notification-service → shop-events-bus
 ```
 
 ### API Providers
-```
+
+```text
 shop-orders-service → shop-orders-rest-api
 shop-catalog-service → shop-catalog-rest-api
+shop-catalog-graphql-service → shop-catalog-graphql-api
 shop-inventory-service → shop-inventory-rest-api
 payment-gateway → payment-gateway-api
 email-provider → smtp-api
