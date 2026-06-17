@@ -27,6 +27,15 @@ catalog/
 	locations.yaml
 	entities.yaml
 	org.yaml
+	shopping-platform/
+		shopping-platform.yaml
+		(entity YAML files per component)
+docs/
+	index.md
+	catalog.md
+	structure.md
+	templates.md
+	troubleshooting.md
 templates/
 	repo-template/
 		template.yaml
@@ -40,6 +49,20 @@ templates/
 			catalog-info.yaml
 			CODEOWNERS
 			readme.md
+	python-repo-template/
+		template.yaml
+		content/
+			catalog-info.yaml
+			CODEOWNERS
+			mkdocs.yml
+			README.md
+			docs/
+	group-test-template/
+		template.yaml
+		content/
+			catalog-info.yaml
+			CODEOWNERS
+			README.md
 ```
 
 ## Catalog Bootstrap
@@ -51,9 +74,13 @@ Current bootstrap file:
 It references:
 
 - `./entities.yaml`
+- `./shopping-platform/shopping-platform.yaml`
 - `./org.yaml`
 - `../templates/repo-template/template.yaml`
 - `../templates/csharp-repo-template/template.yaml`
+- `../templates/python-repo-template/template.yaml`
+- `../templates/group-test-template/template.yaml`
+- `../catalog-info.yaml`
 
 Important: paths in `catalog/locations.yaml` are relative to `catalog/`, so do not prefix with `catalog/` again.
 
@@ -102,7 +129,19 @@ Example:
 - Adds governance and starter files
 - Registers the new component in Backstage via `catalog:register`
 
-## Updating Catalog Data
+### 3) New Python Repository Foundation
+
+- Template file: `templates/python-repo-template/template.yaml`
+- Creates a GitHub repository for Python projects with TechDocs, engineering governance, and repo standards files
+- Adds `README.md`, `CODEOWNERS`, `mkdocs.yml`, `catalog-info.yaml`, and a starter `docs/` folder
+- Registers the new component in Backstage via `catalog:register`
+
+### 4) New Group Test Repository
+
+- Template file: `templates/group-test-template/template.yaml`
+- Creates a GitHub repository for group testing under the **Oz-hubs** organization
+- Adds `README.md`, `CODEOWNERS`, and `catalog-info.yaml`
+- Registers the new component in Backstage via `catalog:register`
 
 1. Edit files under `catalog/` and/or `templates/`.
 2. Open a pull request.
